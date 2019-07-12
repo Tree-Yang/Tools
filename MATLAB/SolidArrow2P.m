@@ -52,7 +52,7 @@ function SolidArrow2P(start_point, end_point, ratio_yx, arr_size, arr_color, lin
         sin(-theta), cos(-theta)];                  % rotate matrix 2
     
     arrow           = start_point' - end_point';    % direction of the line(base line for the arrow)
-    arrow           = sign(arrow) * arr_size;       % set length of base line to a fixed value
+    arrow           = arrow / norm(arrow) * arr_size;       % set length of base line to a fixed value
     
     arrow_1         = A1 * arrow;              % rotate the base line
     arrow_2         = A2 * arrow;
