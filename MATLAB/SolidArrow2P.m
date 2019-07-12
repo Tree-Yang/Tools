@@ -43,9 +43,9 @@ function SolidArrow2P(start_point, end_point, ratio_yx, arr_size, arr_color, lin
     end
     
     k     = 0.01;                                   % length ratio, arr_size*k is the real size of arrow line
-    r     = [1; ratio_yx];                          % ratio vector of x and y axis
 
-    theta = pi / 8;                                 % half angle of the arrow
+    theta0 = pi / 8;                                 % half angle of the arrow
+    theta = atan(tan(theta0)*ratio_yx);
     A1 = [cos(theta), -sin(theta);
         sin(theta), cos(theta)];                    % rotate matrix 1
     A2 = [cos(-theta), -sin(-theta);
@@ -54,8 +54,8 @@ function SolidArrow2P(start_point, end_point, ratio_yx, arr_size, arr_color, lin
     arrow           = start_point' - end_point';    % direction of the line(base line for the arrow)
     arrow           = sign(arrow) * arr_size;       % set length of base line to a fixed value
     
-    arrow_1         = A1 * arrow .* r;              % rotate the base line
-    arrow_2         = A2 * arrow .* r;
+    arrow_1         = A1 * arrow;              % rotate the base line
+    arrow_2         = A2 * arrow;
     arrow_1         = k * arrow_1 + end_point';     % arrow line 1
     arrow_2         = k * arrow_2 + end_point';     % arrow line 2
     
