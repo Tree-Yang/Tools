@@ -23,3 +23,13 @@ Aim of this project is to collect all kinds of useful tools in research
 - This is a MATLAB function to save data in the workspace to *.mat file.
 - All the variables in the workspace will be saved.
 - The file name is autoconfigured with current time.
+
+### SolidArrow2P.m
+
+- This is a MATLAB function to plot a line between 2 points with solid arrow.
+- Color of line, style of line, width of line, size of arrow and color of arrow can be specified.
+
+### OpenArrow2P.m
+
+- This is a MATLAB function to plot a line between 2 points with open arrow.
+- Color of line, style of line, width of line, size of arrow, color of arrow, style of arrow and width of arrow can be specified.
