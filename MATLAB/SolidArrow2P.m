@@ -63,6 +63,7 @@ function SolidArrow2P(start_point, end_point, ratio_yx, arr_size, arr_color, lin
     plot([start_point(1), end_point(1)], [start_point(2), end_point(2)],'Color',line_color,'LineStyle',line_style,'LineWidth',line_width);    % plot the line
     triangle_x = [arrow_1(1),end_point(1),arrow_2(1),arrow_1(1)];       % x coordinates of the 3 vertices of the triangle
     triangle_y = [arrow_1(2),end_point(2),arrow_2(2),arrow_1(2)];       % y coordinates of the 3 vertices of the triangle
-    fill(triangle_x, triangle_y, arr_color);                            % fill the triangle with the specified color by arr_color
+    ph = fill(triangle_x, triangle_y, arr_color);                       % fill the triangle with the specified color by arr_color
+    set(ph, 'LineStyle', 'None');                                       % remove the line on the boundary
     hold off;
 end
