@@ -33,3 +33,8 @@ Aim of this project is to collect all kinds of useful tools in research
 
 - This is a MATLAB function to plot a line between 2 points with open arrow.
 - Color of line, style of line, width of line, size of arrow, color of arrow, style of arrow and width of arrow can be specified.
+
+### Plot_Sample.m
+
+* This is a MATLAB script containing a set of functions and commands to illustrate the data by plot, mesh, contour and contourf.
+* Properties of the figures can be changed.
