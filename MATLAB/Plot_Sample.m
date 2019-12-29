@@ -24,6 +24,7 @@ yv = 0:0.2:10;
 [xm, ym] = meshgrid(xv,yv);
 zm = sin(xm)+cos(ym);
 [c,h]=contour(xm, ym, zm, [-1 -0.5 0 0.5 1], 'k-','LineWidth', 1.0, 'Showtext', 'on');
+% [c,h]=contourf(xm, ym, zm, [-1 -0.5 0 0.5 1], 'k-','LineWidth', 1.0, 'Showtext', 'on');
 clabel(c,h,'FontName','Arial','FontSize',12);
 xlabel('\itx'); ylabel('\ity');
 set(gcf,'Units','centimeters','Position',[5 5 8 6]);
