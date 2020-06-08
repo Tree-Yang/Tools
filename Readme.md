@@ -36,5 +36,9 @@ Aim of this project is to collect all kinds of useful tools in research
 
 ### Plot_Sample.m
 
-* This is a MATLAB script containing a set of functions and commands to illustrate the data by plot, mesh, contour and contourf.
-* Properties of the figures can be changed.
+- This is a MATLAB script containing a set of functions and commands to illustrate the data by plot, mesh, contour and contourf.
+- Properties of the figures can be changed.
+
+### ValueDisplay.m
+- This is a MATLAB function to dispaly the elements of a vector by group together with a given name in the command window
+- The vector, the name of the vector and the size of group should be given.
