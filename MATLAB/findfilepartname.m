@@ -1,10 +1,10 @@
-function fncell = findfilepartname(fileNameP, pathstr)
+function [fncell, n]= findfilepartname(fileNameP, pathstr)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % By Jiashu Yang
 % Date: 2021-02-20 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %find files in a give folder with a starting part of the file name
-    if ~strcmp(pathstr(end), '*')
+    if ~strcmp(fileNameP(end), '*')
         fileNameP = [fileNameP, '*'];
     end
 

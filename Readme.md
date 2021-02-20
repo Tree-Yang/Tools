@@ -40,5 +40,11 @@ Aim of this project is to collect all kinds of useful tools in research
 - Properties of the figures can be changed.
 
 ### ValueDisplay.m
-- This is a MATLAB function to dispaly the elements of a vector by group together with a given name in the command window
+- This is a MATLAB function to display the elements of a vector by group together with a given name in the command window
 - The vector, the name of the vector and the size of group should be given.
+
+### findfilepartname.m
+
+- This is a MATLAB function to search files in a given path by matching the first several characters of the name of files.
+- Inputs of the function is the path to be searched and the first several characters of the file name.
+- Output of the function is a cell containing the full names of the matched files in the given path. 
