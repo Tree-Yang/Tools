@@ -70,3 +70,8 @@ Aim of this project is to collect all kinds of useful tools in research
 - This file presents a braced-frame structure modeled by APDL (Ansys).
 - The model is used to demonstrate how to export global stiffness/mass matrix from Ansys by 'HBMAT' command or substructure analysis (super-element approach).
 - This file is used together with readhbmat.m, reorderhbmat.m and matrix_read.py.
+
+### matreader_abaq2matlab.m
+
+- This is a MATLAB function to read global stiffness/mass matrix from  *.mtx file exported by ABAQUS '\*Matrix Generate' and '\*Matrix Output' commands.
+- By setting option='sparse', one can obtain a sparse matrix.
