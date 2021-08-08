@@ -75,3 +75,8 @@ Aim of this project is to collect all kinds of useful tools in research
 
 - This is a MATLAB function to read global stiffness/mass matrix from  *.mtx file exported by ABAQUS '\*Matrix Generate' and '\*Matrix Output' commands.
 - By setting option='sparse', one can obtain a sparse matrix.
+
+### Abaqus_mat_exp.inp
+
+- This is a Abaqus input file demonstrating how to export global stiffness/mass matrix by using '\*Matrix Generate' and '\*Matrix Output' commands.
+- This Abaqus input file is used together with matreader_abaq2matlab.m
