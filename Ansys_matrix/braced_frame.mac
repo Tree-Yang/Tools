@@ -1,0 +1,100 @@
+FINISH
+/CLEAR
+/FILNAME,'Braced_frame'
+/PREP7
+
+!ELEMENT TYPE
+ET,1,BEAM3
+R,1,2.58064e-2, 1.6649257024e-3, 1.60647e-1, 0
+ET,2,LINK1
+R,2,2.58064e-2
+
+!MATERIAL PROPERTIES
+MP,EX,1,2.1E11
+MP,PRXY,1,0.3
+MP,DENS,1,7800
+
+!NODES
+nstory = 30
+nbay   = 5
+height = 4.572
+width  = 6.096
+*DO,II,1,nbay+1,1
+    *DO,JJ,1,nstory+1,1
+        N,(II-1)*(nstory+1)+JJ, (II-1)*width, (JJ-1)*height,
+    *ENDDO
+*ENDDO
+
+!ELEMENTS: column
+TYPE,1
+MAT,1
+REAL,1
+*DO,KK,1,nbay+1,1
+    *DO,LL,1,nstory,1
+        E,(KK-1)*(nstory+1)+LL,(KK-1)*(nstory+1)+LL+1
+    *ENDDO
+*ENDDO
+ncolumn = nstory*(nbay+1)
+
+!ELEMENTS: beam
+TYPE,1
+MAT,1
+REAL,1
+*DO,MM,1,nstory,1
+    *DO,NN,1,nbay,1
+        E,(NN-1)*(nstory+1)+1+MM, NN*(nstory+1)+1+MM
+    *ENDDO
+*ENDDO
+nbeam = nbay*nstory
+
+!ELEMENTS: braces
+TYPE,2
+MAT,1
+REAL,2
+*DO, OO, 1, nbay, 1
+    *DO, PP, 1, nstory, 1
+        E,(OO-1)*(nstory+1)+PP, OO*(nstory+1)+1+PP
+    *ENDDO
+*ENDDO
+nbrace1 = nbay*nstory
+*DO, QQ, 1, nbay, 1
+    *DO, RR, 1, nstory, 1
+        E,QQ*(nstory+1)+RR, (QQ-1)*(nstory+1)+1+RR
+    *ENDDO
+*ENDDO
+nbrace2 = nbay*nstory
+
+!BOUNDARY CONDITION
+*DO, SS, 1, nbay+1, 1
+    D, (SS-1)*(nstory+1)+1, UX, 0, , , , UY, ROTZ
+*ENDDO
+
+ALLSEL,ALL
+finish
+
+!MODAL ANALYSIS
+/SOLU
+/OUTPUT, 'Modal_res',dat
+ANTYPE, MODAL
+MODOPT, LANB, 20
+MXPAND, 20, , ,NO
+SOLVE
+FINISH
+
+!EXPORT STIFFNESS MATRIX USING HBMAT COMMAND
+/AUX2
+FILE,'Braced_frame',full
+HBMAT, 'Stiffness_mat', dat, , ASCII, STIFF, YES, YES
+HBMAT, 'Mass_mat', dat, ,ASCII, MASS, YES, YES
+FINISH
+
+!SUBSTRUCTURING ANALYSIS
+/SOLU
+/OUTPUT, 'Substructure_mat', dat
+ANTYPE,SUBSTR
+SEOPT, 'Substructure', 2
+NSEL, ALL
+M, ALL, ALL !ALL NODE AS MASTER NODE
+SOLVE
+SELIST, 'Substructure', 3
+FINISH
