@@ -80,3 +80,8 @@ Aim of this project is to collect all kinds of useful tools in research
 
 - This is a Abaqus input file demonstrating how to export global stiffness/mass matrix by using '\*Matrix Generate' and '\*Matrix Output' commands.
 - This Abaqus input file is used together with matreader_abaq2matlab.m
+
+### figetdata.m
+
+* This is a function to get data from '*.fig' files created by MATLAB.
+* The data will be stored in cell format.
